@@ -1,0 +1,71 @@
+/*
+filename: responsive.css
+author:Alex Nikolov
+created:09/04/2022
+description: CSS to make the website function on small displays.
+*/
+
+/*media query for display under 560px*/
+@media screen and (min-width: 560px)
+{
+    /*Changes the Menu from 4-columns to 2 on moderately narrow displays*/
+    .menu
+    {
+        min-width:48%;
+        margin:0.1em;
+    }
+
+    .content
+    {
+        max-width: 100%;
+    }
+
+    aside 
+    {
+        width: 90%;
+    }
+
+    .footer
+    {
+        position:static;
+    }
+
+}
+
+/*media query for display under 550px*/
+@media screen and (max-width: 560px)
+{
+    /*Menu goes from 2 columns down to just 1 on very narrow displays*/
+    .menu
+    {
+        min-width: 99%;
+        margin: .1em;
+    }
+
+    .content
+    {
+        max-width: 100%;
+    }
+
+    aside 
+    {
+        width: 90%;
+    }
+
+    .footer
+    {
+        position: static;
+    }
+
+    table, th, td{
+
+        font-size: small;
+    }  
+
+    .footer
+    {
+        position:static;
+    }
+
+
+}

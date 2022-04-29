@@ -1,0 +1,309 @@
+/*
+filename: style.css
+author: Jerrold Wong Youn Zhuet
+created: 3/4/2022
+last modified: 6/4/2022
+description: css for website
+*/
+
+*{font-family:arial;} /*sets the default font of all text to arial*/
+
+/*Sets a background graphic image, makes it cover the whole webpage and sets a minimum height
+to the page so the footer will be at the bottom if website is short*/
+body
+{
+	background-image:url(images/bg.webp);
+	color:black;
+	background-size:cover;
+	min-height: 100vh;
+}
+
+/*Sets the background of the header to black, negative margins to make it stretch width of
+webpage and paddings to make it neat*/
+header
+{
+	background-color:black; 
+	margin-left:-8px; 
+	margin-right:-8px; 
+	margin-top:-22px; 
+	padding-bottom:2px; 
+	padding-top:5px;
+}
+
+/*class content encompasses everything in the html body except header and footer
+setting max width and margin auto to make the texts centered*/
+.content
+{
+	max-width:75%;
+	margin:auto;
+
+}
+
+/*Makes the heading uppercase, sets the text color to white, enlarges the font by 2x its 
+original size, makes the heading bold and aligns heading to center*/
+header h1
+{
+	text-transform: uppercase;
+	color:white;
+	font-size:2em;
+	font-weight:bold;
+	text-align: center;
+	
+}
+
+h1
+{
+	font-size: 2em;
+}
+
+/*Text decoration none removes underline from visited link, padding for tidiness, 
+sets background color to dark grey and displays the menu bar as a block*/
+nav a
+{
+	text-decoration:none;
+	padding: 0.2em 0.6em;
+	background-color: darkgrey;
+	display:block;
+}
+
+/*Sets the background color to a shade of grey for whichever page is currently visited*/
+.active
+{
+	background-color: #777777;
+}
+
+/*If the link is visited, its color is set to white*/
+nav a:visited
+{
+	color:white;
+}
+
+/*Lightgray in color when menu bar is hovered over*/
+nav a:hover
+{
+	background-color:lightgray;
+}
+
+/*Makes menu item centered, displays all item in line, bold text font, width to evenly
+partition the menu items*/
+.menu
+{
+	text-align:center;
+	display: inline-block;
+	font-weight:bold;
+	font-size:1.2em;
+	width:24.5%;
+}
+
+/*The home button in our webpage, floating it to the left and adding padding for tidiness*/
+header img
+{
+	float:left; 
+	padding-top:13px; 
+	padding-left:0px
+}
+
+/*Gives the text body a 'background' by setting it to a shade of grey and making it slightly
+transparent, giving it a slightly curved edge with border-radius*/
+#article1
+{
+	background-color: #EEEEEE88;
+	border-radius:5px;
+	padding:12px;
+}
+
+/*Footer is italic and bolded according to assignment specifications, negative margin to 
+stretch background full width of webpage, a white border only for the top and black
+background*/
+footer 
+{
+	font-style:italic;
+	font-weight:bold;
+	margin-left:-8px;
+	margin-right:-8px;
+	
+	border-top: 2px solid white;
+	color:white;
+	background-color:black;
+	margin-top: 4em;
+	
+}
+
+/*Sets the position of the footer to be fixed with 100% width and 0 pixels below it*/
+.footer
+{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+/*This is the general footer
+Makes the footer display in line with equal width, first child floats left, second child
+is centered, last child is right aligned*/
+footer p {display: inline-block; width:33%;}
+footer p:first-child {float:left;}
+footer p:nth-child(2) {text-align: center; min-width:33%;}
+footer p:nth-child(3){text-align:right; float:right;}
+
+/*This is the footer for our student mails
+Makes footer display inline, removes underline from links, sets color to lightgrey and 
+makes text centered*/
+footer a 
+{
+	display: inline-block;
+	text-decoration:none;
+	color:lightgrey;
+	min-width:19.7%;
+	max-width: max-content;
+	text-align: center;
+}
+
+/*Makes a border around the table*/
+table, th, td{border: 1px solid black;}
+
+/*Makes the background of table head grey*/
+th{background-color:grey;}
+
+/*Makes the background of table data lightgrey*/
+td{background-color:lightgrey;} 
+
+/*Gives the aside a curved border, floating it to the right, adding some margin and padding
+to make it look tidy and adding some box shadow around its sides*/
+aside {
+	border: 4px inset gray;
+	border-radius: 14px;
+	margin: 2%;
+	padding: 2%;
+	width: 30%;
+	float: right;
+	box-shadow: 10px 10px 5px #aaaaaa;
+}
+/*enhancements*/
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 100%;
+	z-index: -10;
+	background-color: var(--contrast-color);
+  }
+  
+  .container {
+	display: flex;
+	height: 100vh;
+	justify-content: space-around;
+	align-items: center;
+	color: rgb(0, 0, 0);
+	animation: expand .8s ease forwards;
+	background-color: var(--secondary-color);
+	position: relative;
+	transition: all .8s ease;
+  }
+  
+  .container_content {
+   width: 50%;
+  }
+  
+  .container_content_inner {
+	width: 80%;
+	margin-left: 80px;
+  }
+  
+  .container_outer_img {
+	margin: 50px;
+	width: 50%;
+	overflow: hidden;
+  }   
+	  
+  .container_img {
+	width: 100%;
+	animation: slideIn 1.5s ease-in-out forwards;
+  }
+  
+  .par {
+	height: auto;
+	overflow: hidden;
+  }
+  
+  
+  
+  .btns {
+	height: 100%;
+	position: relative;
+	width: 150px;
+	overflow: hidden;
+  }
+  
+  .btns_more {
+	background: transparent;
+	border: 1px solid var(--contrast-color);
+	border-radius: 50px;
+	padding: 8px 12px;
+	color: #BF307F;
+	font-size: 16px;
+	text-transform: uppercase;
+	position: relative;
+	margin-top: 15px;
+	outline: none;
+	transform: translateY(50px);
+	animation: slideUp .8s ease-in-out  forwards 1s;
+  }
+  
+  .title {
+	overflow: hidden;
+	height: auto;
+  }
+  
+  
+  @keyframes slideIn {
+	0% {
+	  transform: translateX(500px) scale(.2);
+	}
+	100% {
+	  transform: translateX(0px) scale(1);
+	}
+  }
+  
+  @keyframes slideUp {
+	0% {
+	  transform: translateY(300px);
+	}
+	100% {
+	  transform: translateY(0px);
+	}
+  }
+  
+  @keyframes expand {
+	0% {
+	  transform: translateX(1400px);
+	}
+	100% {
+	  transform: translateX(0px);
+	}
+  }
+  .anime 
+  {
+	text-decoration: none;
+	color: #bd00d6;
+}
+  .animeh4{
+	color: #000000;
+	text-align: center;
+	font-size: 150%;
+  
+  }
+  .par li{
+	list-style-type: none;
+  }
+  .animeh1{
+	color: #000000;
+	text-align: center;
+	font-size: 360%;
+  }
+  
+  .container_img1{
+	display: none;
+  }
+  
