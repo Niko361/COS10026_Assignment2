@@ -34,7 +34,7 @@
     This page is meant to help assess what you have learned about quizes.
   </h4>
 
-  <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
+  <form method="post" action="markquiz.php">
     <fieldset>
       <legend class="studentdetails">
         <h4>Student Details</h4>
