@@ -34,7 +34,7 @@
     This page is meant to help assess what you have learned about quizes.
   </h4>
 
-  <form method="post" action="markquiz.php">
+  <form method="post" action="markquiz.php" novalidate=”novalidate”>
     <fieldset>
       <legend class="studentdetails">
         <h4>Student Details</h4>
@@ -47,7 +47,7 @@
         <label for="firstname">Given Name</label> <input type="text" name="firstname" id="firstname" pattern="[A-Za-z \-]{1,30}" size="20" required="required"/>
       </p>
       <p>
-        <label for="familyname">Family Name</label> <input type="text" name="familyname" id="familyname" pattern="[A-Za-z \-]{1,30}" size="20" required="required"/>
+        <label for="lastname">Last Name</label> <input type="text" name="lastname" id="lastname" pattern="[A-Za-z \-]{1,30}" size="20" required="required"/>
       </p>
     </fieldset>
 

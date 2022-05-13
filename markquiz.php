@@ -30,7 +30,7 @@
         $textquestion = htmlspecialchars(trim($_POST["textquestion"]));
         $multiplechoice1 = htmlspecialchars(trim($_POST["multiplechoice1"]));
         $dropdownmultichoice = htmlspecialchars(trim($_POST["dropdownmultichoice"]));
-        $multicheckbox = htmlspecialchars(trim($_POST["multicheckbox"]));
+        $multicheckbox = $_POST["multicheckbox"];
         $numericalQuestion = htmlspecialchars(trim($_POST["numericalQuestion"]));
 
         $errMsg = "";
@@ -38,31 +38,31 @@
         //checks that the student ID has been set and is in the required format.
         if($studentid == "")
         {
-            $errMsg = "<p>You must enter your first name.</p>";
+            $errMsg .= "<p>You must enter your first name.</p>";
         }
         else if (!preg_match("/^[0-9]{7}$|^[0-9]{10}$/", $studentid))
         {
-            $errMsg = "<p>You must enter 7 or 10 numbers for your student ID.</p>";
+            $errMsg .= "<p>You must enter 7 or 10 numbers for your student ID.</p>";
         }
         
         //checks that the first name is in the required format
         if($firstname == "")
         {
-            $errMsg = "<p>You must enter your first name.</p>";
+            $errMsg .= "<p>You must enter your first name.</p>";
         }
         else if (!preg_match("/^[a-zA-Z- ]{0,30}$/", $firstname))
         {
-            $errMsg = "<p>Only alpha letters allowed in your first name.</p>";
+            $errMsg .= "<p>Only alpha letters allowed in your first name.</p>";
         }
         
         //checks that the lastname has been set and is in the required format.
         if($lastname == "")
         {
-            $errMsg = "<p>You must enter your last name.</p>";
+            $errMsg .= "<p>You must enter your last name.</p>";
         }
         else if (!preg_match("/^[a-zA-Z\-]{0,30}$/", $lastname))
         {
-            $errMsg = "<p>Only alpha letters and hyphens allowed in your last name.</p>";
+            $errMsg .= "<p>Only alpha letters and hyphens allowed in your last name.</p>";
         }
 
         //Checks that all questions in the form have been filled in.
@@ -78,33 +78,39 @@
         $marks = 0.0;
         $totalmarks = 5;
 
+        echo $multiplechoice1;
+
         if ($textquestion == "")
             $marks++;
         if ($multiplechoice1 == "a")
-            $multiplechoice1++;
+            $marks++;
         if ($dropdownmultichoice == "b")
-            $dropdownmultichoice++;
+            $marks++;
         if ($multicheckbox == "")
-            $multicheckbox++;
+            $marks++;
         if ($numericalQuestion == "")
-            $numericalQuestion++;
+            $marks++;
 
-        $score = $marks/$totalmarks;
+        $score = ($marks/$totalmarks)*100;
 
-        //check if the table exists, create it if not, 
+        //check if the table exists, create it if not, mptid INT NOT NULL, score INT NOT NULL);
         $sql_table="attempts";
         $query = "SELECT attemptid FROM attempts";
         $result = mysqli_query($conn, $query);
-        if (!result)
+        if (!$result)
         {
-            CREATE TABLE attempts (attempt_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, date_time datetime NOT NULL, firstname VARCHAR(30) NOT NULL, lastname VARCHAR(30) NOT NULL, studentnumber VARCHAR(10) NOT NULL, attemptnumber INT NOT NULL, score INT NOT NULL);
+            $query = "CREATE TABLE attempts (attempt_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, date_time datetime NOT NULL, firstname VARCHAR(30) NOT NULL, lastname VARCHAR(30) NOT NULL, studentid VARCHAR(10) NOT NULL, attemptid INT NOT NULL, score INT NOT NULL)";
+            $result = mysqli_query($conn, $query);
         }
 
         //determines the number of attempts that have been made.
-        $attemptcount = 0;
-        while ($row = mysqli_fetch_assoc($result))
+        $attemptid = 1;
+        if($result)
         {
-            $attemptid = $row["attemptid"] + 1;
+            while ($row = mysqli_fetch_assoc($result))
+            {
+                $attemptid = $row["attemptid"] + 1;
+            }
         }
 
         //checks whether the number of attempts made already is less than 2
@@ -114,13 +120,15 @@
         }
 
         //checks whether there are any pending error messages and halts execution if there are.
-        if($errMsg == )
+        if($errMsg != "")
         {
             echo $errMsg;
+            echo "<p>You can try again <a href=\"quiz.php\">here</a>.</p>";
         }
         else
         {
-            $query = "INSERT into $sql_table  (date_time, firstname, lastname, studentid, attemptid, score) values (datetime(), '$lastname', '$price', '$studentid', '$attemptid', '$score')";
+            $timestamp = time();
+            $query = "INSERT into $sql_table  (date_time, firstname, lastname, studentid, attemptid, score) values ('$timestamp', '$firstname', '$lastname', '$studentid', '$attemptid', '$score')";
             $result = mysqli_query($conn, $query);
 
             //checks if the execution was successful
@@ -144,19 +152,19 @@
                     ."<th scope=\"col\">Attempt Count</th>\n "
                     ."</tr>\n ";
 
-                echo "<tr>\n ";
+                echo "<tr>\n "
                     ."<td>", $firstname, "</td>\n"
                     ."<td>", $lastname, "</td>\n"
                     ."<td>", $studentid, "</td>\n"
-                    ."<td>", $score, "</td>\n"
+                    ."<td>", $score, "%</td>\n"
                     ."<td>", $attemptid, "</td>\n"
                     ."</tr>\n";
-                }
+                
                 echo "</table>\n ";
 
-                if(attemptcount < 2)
+                if(attemptid < 2)
                 {
-                    echo "<p>You can make a second attempt <a href="quiz.php">here</a>.</p>";
+                    echo "<p>You can make a second attempt <a href=\"quiz.php\">here</a>.</p>";
                 }
             }
 
