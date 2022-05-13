@@ -61,7 +61,7 @@
         <textarea id="textquestion" name="textquestion" rows="6" cols="40" placeholder="Type your answer here..."></textarea>
       </p>
       <p>
-        When using a well secured proxy service, who can see what websites you are accessing?<br>
+        When using a well secured proxy service, who cannot see what websites you are accessing?<br>
         <label for="a">Your ISP</label> <input type="radio" id="a" name="multiplechoice1" value="a" required="required"/><br>
         <label for="b">The website you are trying to access</label> <input type="radio" id="b" name="multiplechoice1" value="b"/><br>
         <label for="c">The proxy service</label> <input type="radio" id="c" name="multiplechoice1" value="c"/><br>
