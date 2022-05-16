@@ -4,9 +4,28 @@
         <meta charset="utf-8" />
         <meta name="description" content="COS10026 Mark Quiz" />
         <meta name="keywords" content="PHP, MySQL" />
+        <link href="styles/style.css" rel="stylesheet"/>
+        <!--Reference to external responsive CSS File-->
+        <link href="styles/responsive.css" rel="stylesheet" media="screen and (max-width: 1024px)"/>
         <title>Retrieving records to HTML</title>
     </head>
     <body>
+
+    <header>
+		<a href="index.php"><img src="styles/images/home.jpg" alt="homebutton" height="60"></a>
+		<h1>Proxy Quiz</h1>
+    </header> 
+
+    <div class="content">
+
+        <nav>
+        <p class="menu" ><a href="index.php">Introduction</a></p> 
+        <p class="menu"><a href="topic.php">Topic Description</a> </p> 
+        <p class="menu"><a class="active" href="quiz.php">Quiz</a></p> 
+        <p class="menu"><a href="enhancements.php">Enhancements</a></p> 
+        </nav>
+
+    <div id="article1">
         <h1>
             Quiz Marker
         </h1>
@@ -27,7 +46,7 @@
         $studentid = htmlspecialchars(trim($_POST["studentid"]));
         $firstname = htmlspecialchars(trim($_POST["firstname"]));
         $lastname = htmlspecialchars(trim($_POST["lastname"]));
-        $textquestion = htmlspecialchars(trim($_POST["textquestion"]));
+        $textquestion = strtolower(htmlspecialchars(trim($_POST["textquestion"])));
         $multiplechoice1 = htmlspecialchars(trim($_POST["multiplechoice1"]));
         $dropdownmultichoice = htmlspecialchars(trim($_POST["dropdownmultichoice"]));
         $multicheckbox = $_POST["multicheckbox"];
@@ -74,40 +93,46 @@
             $errMsg .= "<p>Please answer every question in the quiz.</p>";
         }
 
-        //marks the quiz
+        //marks the quiz, and calculates the score
         $marks = 0.0;
-        $totalmarks = 5;
-
-        if ($textquestion == "")
+        if (($textquestion == "forward proxy") || ($textquestion == "forward"))
             $marks++;
         if ($multiplechoice1 == "a")
             $marks++;
         if ($dropdownmultichoice == "b")
             $marks++;
-        if ($multicheckbox == "")
+        if (count($multicheckbox) == 4)
+            if(($multicheckbox[0] == "OptionA") && ($multicheckbox[1] == "OptionB") && ($multicheckbox[2] == "OptionD") && ($multicheckbox[3] == "OptionE"))
+                $marks++;
+        if ($numericalQuestion == "4")
             $marks++;
-        if ($numericalQuestion == "")
-            $marks++;
+        
+        $score = ($marks/5)*100;
 
-        $score = ($marks/$totalmarks)*100;
+        //Rejects the attempts if the user has scored zero
+        if($score == 0)
+        {
+            $errMsg .= "<p>You have scored 0%, please answer at least one question correctly to submit attempt.</p>";
+        }
 
-        //check if the table exists, create it if not, mptid INT NOT NULL, score INT NOT NULL);
+        
         $sql_table="attempts";
-        $query = "SELECT attemptnumber FROM attempts";
+        $query = "SELECT studentid FROM attempts";
         $result = mysqli_query($conn, $query);
+        $attemptnumber = 1;
+        //check if the table exists, create it if not, mptid INT NOT NULL, score INT NOT NULL);
         if (!$result)
         {
             $query = "CREATE TABLE attempts (attempt_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, date_time datetime NOT NULL, firstname VARCHAR(30) NOT NULL, lastname VARCHAR(30) NOT NULL, studentid VARCHAR(10) NOT NULL, attemptnumber INT NOT NULL, score INT NOT NULL)";
             $result = mysqli_query($conn, $query);
         }
-
-        //determines the number of attempts that have been made.
-        $attemptnumber = 1;
-        if($result)
+        else
         {
+            //counts whether the student (determined by student ID) has made prior quiz attempts.
             while ($row = mysqli_fetch_assoc($result))
             {
-                $attemptnumber = $row["attemptnumber"] + 1;
+                if($studentid == $row["studentid"])
+                    $attemptnumber++;
             }
         }
 
@@ -125,7 +150,7 @@
         }
         else
         {
-            $timestamp = time();
+            $timestamp = date("Y-m-d H:i:s");
             $query = "INSERT into $sql_table  (date_time, firstname, lastname, studentid, attemptnumber, score) values ('$timestamp', '$firstname', '$lastname', '$studentid', '$attemptnumber', '$score')";
             $result = mysqli_query($conn, $query);
 
@@ -175,5 +200,18 @@
         mysqli_close($conn);
     } //if successful database connection
     ?>
+    </div>
+    </div>
+
+    <footer>
+		<p>COS10026</p>
+		<p>&#169; Swinburne University of Technology</p>
+    <p>Group Assignment Part 1</p>
+    <a href="mailto:103831724@student.swin.edu.au">103831724@student.swin.edu.au</a>
+    <a href="mailto:103986022@student.swin.edu.au">103986022@student.swin.edu.au</a>
+    <a href="mailto:1103843949@student.swin.edu.au">1103843949@student.swin.edu.au</a>
+    <a href="mailto:100595852@student.swin.edu.au">100595852@student.swin.edu.au</a>
+    <a href="mailto:1103500118@student.swin.edu.au">1103500118@student.swin.edu.au</a>		
+	</footer>
 </body>
 </html>

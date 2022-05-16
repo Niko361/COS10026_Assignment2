@@ -57,7 +57,7 @@
       </legend>
 
       <p>
-        <label for="textquestion">What is a reverse proxy used for?:<br></label>
+        <label for="textquestion">What is the most common type of proxy?:<br></label>
         <textarea id="textquestion" name="textquestion" rows="6" cols="40" placeholder="Type your answer here..."></textarea>
       </p>
       <p>

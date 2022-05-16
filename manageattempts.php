@@ -15,17 +15,17 @@
 <body>
 
   <header>
-		<a href="index.html"><img src="styles/images/home.jpg" alt="homebutton" height="60"></a>
+		<a href="index.php"><img src="styles/images/home.jpg" alt="homebutton" height="60"></a>
 		<h1>Proxy Quiz</h1>
   </header> 
 
   <div class="content">
 
     <nav>
-      <p class="menu" ><a href="index.html">Introduction</a></p> 
-      <p class="menu"><a href="topic.html">Topic Description</a> </p> 
-      <p class="menu"><a class="active" href="quiz.html">Quiz</a></p> 
-      <p class="menu"><a href="enhancements.html">Enhancements</a></p> 
+      <p class="menu" ><a href="index.php">Introduction</a></p> 
+      <p class="menu"><a href="topic.php">Topic Description</a> </p> 
+      <p class="menu"><a class="active" href="quiz.php">Quiz</a></p> 
+      <p class="menu"><a href="enhancements.php">Enhancements</a></p> 
     </nav>
 
   <div id="article1">
