@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1>
-            Creating Web Applications - Lab10
+            Quiz Marker
         </h1>
     <?php
     require_once("settings.php"); //connection info
@@ -52,7 +52,7 @@
         }
         else if (!preg_match("/^[a-zA-Z- ]{0,30}$/", $firstname))
         {
-            $errMsg .= "<p>Only alpha letters allowed in your first name.</p>";
+            $errMsg .= "<p>Only alpha letters, hyphens, and spaces allowed in your last name.</p>";
         }
         
         //checks that the lastname has been set and is in the required format.
@@ -60,9 +60,9 @@
         {
             $errMsg .= "<p>You must enter your last name.</p>";
         }
-        else if (!preg_match("/^[a-zA-Z\-]{0,30}$/", $lastname))
+        else if (!preg_match("/^[a-zA-Z\- ]{0,30}$/", $lastname))
         {
-            $errMsg .= "<p>Only alpha letters and hyphens allowed in your last name.</p>";
+            $errMsg .= "<p>Only alpha letters, hyphens, and spaces allowed in your last name.</p>";
         }
 
         //Checks that all questions in the form have been filled in.
@@ -71,14 +71,12 @@
             || ($dropdownmultichoice == "")
             || ($multicheckbox == ""))
         {
-            $errMsg .= "<p>Please fill in every field in the quiz form.</p>";
+            $errMsg .= "<p>Please answer every question in the quiz.</p>";
         }
 
         //marks the quiz
         $marks = 0.0;
         $totalmarks = 5;
-
-        echo $multiplechoice1;
 
         if ($textquestion == "")
             $marks++;
@@ -95,26 +93,26 @@
 
         //check if the table exists, create it if not, mptid INT NOT NULL, score INT NOT NULL);
         $sql_table="attempts";
-        $query = "SELECT attemptid FROM attempts";
+        $query = "SELECT attemptnumber FROM attempts";
         $result = mysqli_query($conn, $query);
         if (!$result)
         {
-            $query = "CREATE TABLE attempts (attempt_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, date_time datetime NOT NULL, firstname VARCHAR(30) NOT NULL, lastname VARCHAR(30) NOT NULL, studentid VARCHAR(10) NOT NULL, attemptid INT NOT NULL, score INT NOT NULL)";
+            $query = "CREATE TABLE attempts (attempt_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, date_time datetime NOT NULL, firstname VARCHAR(30) NOT NULL, lastname VARCHAR(30) NOT NULL, studentid VARCHAR(10) NOT NULL, attemptnumber INT NOT NULL, score INT NOT NULL)";
             $result = mysqli_query($conn, $query);
         }
 
         //determines the number of attempts that have been made.
-        $attemptid = 1;
+        $attemptnumber = 1;
         if($result)
         {
             while ($row = mysqli_fetch_assoc($result))
             {
-                $attemptid = $row["attemptid"] + 1;
+                $attemptnumber = $row["attemptnumber"] + 1;
             }
         }
 
         //checks whether the number of attempts made already is less than 2
-        if($attemptid > 2)
+        if($attemptnumber > 2)
         {
             $errMsg .= "<p>You have already 2 attempts and are not allowed to make any more.</p>";
         }
@@ -128,19 +126,19 @@
         else
         {
             $timestamp = time();
-            $query = "INSERT into $sql_table  (date_time, firstname, lastname, studentid, attemptid, score) values ('$timestamp', '$firstname', '$lastname', '$studentid', '$attemptid', '$score')";
+            $query = "INSERT into $sql_table  (date_time, firstname, lastname, studentid, attemptnumber, score) values ('$timestamp', '$firstname', '$lastname', '$studentid', '$attemptnumber', '$score')";
             $result = mysqli_query($conn, $query);
 
             //checks if the execution was successful
             if(!$result)
             {
-                echo "<p class=\"wrong\">Something is wrong with ", $query, "</p>";
+                echo "<p>Something is wrong with ", $query, "</p>";
                 //would not show up in a production script
             }
             else
             {
                 //display an operation successful message
-                echo "<p> class=\"ok\">Successfuly added attempt</p>";
+                echo "<p>Successfuly added attempt</p>";
 
                 //Display attempt details
                 echo "<table border=\"1\">\n";
@@ -157,19 +155,20 @@
                     ."<td>", $lastname, "</td>\n"
                     ."<td>", $studentid, "</td>\n"
                     ."<td>", $score, "%</td>\n"
-                    ."<td>", $attemptid, "</td>\n"
+                    ."<td>", $attemptnumber, "</td>\n"
                     ."</tr>\n";
                 
                 echo "</table>\n ";
 
-                if(attemptid < 2)
+                if($attemptnumber > 2)
                 {
                     echo "<p>You can make a second attempt <a href=\"quiz.php\">here</a>.</p>";
                 }
-            }
 
-            //Frees up the memory, after using the result pointer
-            mysqli_free_result($result);
+                //Frees up the memory, after using the result pointer
+                if(!(!$result || $result))
+                    mysqli_free_result($result);
+            }
         }
         
         //close the database connection
