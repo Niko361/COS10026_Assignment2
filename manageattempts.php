@@ -53,7 +53,7 @@
         <input type="text" name="changescoreID" id="changescoreID" pattern="\d{7,10}" size="10"/>
       </p>
 	  <p><label for="changescorenumber">Attempt Number </label> 
-        <input type="text" name="changescorenumber" id="changescorenumber" pattern="\d{1}"size="1" maxlength="1"/>
+        <input type="text" name="changescorenumber" id="changescorenumber" pattern="\d{1}" size="1" maxlength="1"/>
       </p>
 	  <p><label for="changescorevalue">Change Score </label> 
         <input type="text" name="changescorevalue" id="changescorevalue" pattern="\d{3}" size="3" maxlength="3"/>

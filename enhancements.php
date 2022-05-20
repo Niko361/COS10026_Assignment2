@@ -15,9 +15,7 @@
 	<div id="content">
 	<?php include 'menu.inc'; ?>
 	<div id="article1">
-
-
-    <div id="content">   
+ 
         <section>
             <h2>Responsive Design</h2>
             <p>By using the media attribute in a link tag that references a stylesheet, it is possible to have an additional CSS stylesheet that
@@ -77,7 +75,8 @@
         </section>
     </div>
 </div>
-</div>
+
+
 <?php include 'footer.inc';?>
 </body>
 </html>
