@@ -15,19 +15,19 @@ body
 	background-image:url(images/bg.webp);
 	color:black;
 	background-size:cover;
-	min-height: 100vh;
+
+
+	margin:0;
 }
 
 /*Sets the background of the header to black, negative margins to make it stretch width of
 webpage and paddings to make it neat*/
 header
 {
-	background-color:black; 
-	margin-left:-8px; 
-	margin-right:-8px; 
-	margin-top:-22px; 
-	padding-bottom:2px; 
-	padding-top:5px;
+	background-color: black;
+	margin-top: -10px;
+	padding-bottom: 2px;
+	padding-top: 5px;
 }
 
 /*class content encompasses everything in the html body except header and footer
@@ -36,6 +36,8 @@ setting max width and margin auto to make the texts centered*/
 {
 	max-width:75%;
 	margin:auto;
+
+	min-height: calc(100vh - 211px);
 }
 
 #article1
@@ -43,6 +45,7 @@ setting max width and margin auto to make the texts centered*/
 	background-color: #EEEEEE88;
 	border-radius:5px;
 	padding:12px;
+
 }
 
 /*Makes the heading uppercase, sets the text color to white, enlarges the font by 2x its 
@@ -117,16 +120,16 @@ footer
 {
 	font-style:italic;
 	font-weight:bold;
-	margin-left:-8px;
-	margin-right:-4px;
+
 	
 	border-top: 2px solid white;
 	color:white;
 	background-color:black;
 	margin-top: 4em;
 	
+	padding-right: 10px;
+	padding-left: 10px;
 }
-
 
 /*This is the general footer
 Makes the footer display in line with equal width, first child floats left, second child
