@@ -15,7 +15,7 @@ description: CSS to make the website function on small displays.
         margin:0.1em;
     }
 
-    .content
+    #content
     {
         max-width: 100%;
     }
@@ -42,7 +42,7 @@ description: CSS to make the website function on small displays.
         margin: .1em;
     }
 
-    .content
+    #content
     {
         max-width: 100%;
     }
