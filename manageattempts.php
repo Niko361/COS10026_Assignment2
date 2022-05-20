@@ -18,7 +18,7 @@
 
 <?php include 'menu.inc'; ?>
 
-  <div id="article1">
+  <div id="content">
 
   <h4>
     This page is meant for queries on attempts.
@@ -78,7 +78,6 @@
     <input type= "submit" value="Check"/>
   </form>
 
-</div>
 </div>
 
 <?php include 'footer.inc';?>

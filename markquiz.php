@@ -16,7 +16,7 @@
     <?php include 'menu.inc'; ?>
 
 
-    <div id="article1">
+    <div id="content">
         <h1>
             Quiz Marker
         </h1>
@@ -191,7 +191,6 @@
         mysqli_close($conn);
     } //if successful database connection
     ?>
-    </div>
     </div>
 
 <?php include 'footer.inc';?>

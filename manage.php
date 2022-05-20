@@ -19,7 +19,7 @@
 <?php include 'menu.inc'; ?>
 
 
-  <div id="article1">
+  <div id="content">
   
 <?php
 	require_once("settings.php");
@@ -151,7 +151,6 @@
 		mysqli_close($conn);
 	}
 ?>
-</div>
 </div>
 
 <?php include 'footer.inc';?>

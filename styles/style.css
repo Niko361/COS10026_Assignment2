@@ -36,7 +36,9 @@ setting max width and margin auto to make the texts centered*/
 {
 	max-width:75%;
 	margin:auto;
-
+	background-color: #EEEEEE88;
+	border-radius:5px;
+	padding:12px;
 }
 
 /*Makes the heading uppercase, sets the text color to white, enlarges the font by 2x its 
@@ -92,7 +94,7 @@ partition the menu items*/
 	display: inline-block;
 	font-weight:bold;
 	font-size:1.2em;
-	width:24.5%;
+	width:19.5%;
 }
 
 /*The home button in our webpage, floating it to the left and adding padding for tidiness*/
@@ -103,14 +105,6 @@ header img
 	padding-left:0px
 }
 
-/*Gives the text body a 'background' by setting it to a shade of grey and making it slightly
-transparent, giving it a slightly curved edge with border-radius*/
-#article1
-{
-	background-color: #EEEEEE88;
-	border-radius:5px;
-	padding:12px;
-}
 
 /*Footer is italic and bolded according to assignment specifications, negative margin to 
 stretch background full width of webpage, a white border only for the top and black
@@ -120,7 +114,7 @@ footer
 	font-style:italic;
 	font-weight:bold;
 	margin-left:-8px;
-	margin-right:-8px;
+	margin-right:-4px;
 	
 	border-top: 2px solid white;
 	color:white;
@@ -129,13 +123,6 @@ footer
 	
 }
 
-/*Sets the position of the footer to be fixed with 100% width and 0 pixels below it*/
-.footer
-{
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-}
 
 /*This is the general footer
 Makes the footer display in line with equal width, first child floats left, second child

@@ -9,4 +9,4 @@
 			<a href="mailto:100595852@student.swin.edu.au">100595852@student.swin.edu.au</a>
 			<a href="mailto:1103500118@student.swin.edu.au">1103500118@student.swin.edu.au</a>		
 		</footer>
-	</div>
+</div>

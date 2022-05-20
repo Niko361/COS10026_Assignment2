@@ -14,12 +14,10 @@
 
 <body>
 <?php include 'header.inc'; ?>
-    
-    <div class="content">
 
     <?php include 'menu.inc'; ?>
 
-    <div id="article1">
+    <div id="content">
 
     <hr>
 
@@ -56,9 +54,6 @@
         <img src="images/proxy_process.jpg" alt="cybersecurity" height="200">
         <figcaption>Fig.1 - Simplified depiction of a proxy </figcaption>
       </figure>
-<!--
-    <p><b>There are two types of proxies</b></p>
--->
 
     <table style="width:100%">
         <tr>
@@ -163,8 +158,7 @@
     </p>
 
     </div>
-    </div>
 
-<?php include 'footer.inc';?>
+    <?php include 'footer.inc';?>
 </body>
 </html>
