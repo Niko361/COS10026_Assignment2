@@ -72,6 +72,31 @@
           <option value="c">List all who got less than 50% on second attempt</option>
         </select>
       </p>
+	</fieldset>
+	
+	<fieldset class="sort">
+	 <legend>
+		<h4>Sort Attempts</h4>
+	 </legend>
+	 <p><label for="sortfield">Which field would you like to sort by?<br></label>
+		<select name="sortfield" id="sortfield">
+			<option value="" selected>Please Select</option>
+			<option value="attempt_id">Attempt ID</option>			
+			<option value="date_time">Date Time</option>
+			<option value="firstname">First name</option>
+			<option value="lastname">Last name</option>			
+			<option value="studentid">Student ID</option>
+			<option value="attemptnumber">Attempt number</option>
+			<option value="score">Score</option>
+		</select>
+	 </p>
+	 <p><label for="sortorder">How would you like to sort by?<br></label>
+		<select name="sortorder" id="sortorder">
+			<option value="" selected>Please Select</option>
+			<option value="a">Ascending order</option>			
+			<option value="b">Descending order</option>
+		</select>
+	 </p>
 	</fieldset><br><br>
     
     <input type= "submit" value="Check"/>

@@ -25,6 +25,7 @@
 	if(!$conn){
 		echo "<p>Database connection failure</p>";
 	}else{
+		
 		$listattempt = htmlspecialchars(trim($_GET["listattempt"]));
 		if($listattempt == null){
 			$deleteattempt = htmlspecialchars(trim($_GET["deleteattempt"]));
@@ -33,12 +34,31 @@
 				$changescoreID = htmlspecialchars(trim($_GET["changescoreID"]));
 				$changescorenumber = htmlspecialchars(trim($_GET["changescorenumber"]));
 				$changescorevalue = htmlspecialchars(trim($_GET["changescorevalue"]));
+				if(($changescoreID != null OR $changescorenumber != null OR $changescorevalue != null) AND 
+				($changescoreID == null OR $changescorenumber == null OR $changescorevalue == null)){
+					echo "Please fill in the form correctly.";
+					return false;
+				}
 				
-				if($changescoreID == null OR $changescorenumber == null OR $changescorevalue == null){
+				if($changescoreID == null AND $changescorenumber == null AND $changescorevalue == null){
 					$querymultichoice = htmlspecialchars(trim($_GET["querymultichoice"]));
 					
+					if($querymultichoice == null){
+						$sortfield = htmlspecialchars(trim($_GET["sortfield"]));
+						$sortorder = htmlspecialchars(trim($_GET["sortorder"]));
+						if(($sortfield != null OR $sortorder != null) AND ($sortfield == null OR $sortorder == null)){
+						 echo "Please fill in the form correctly.";
+						 return false;
+						}
+						
+					}
 				}
 			}
+		}
+		if(empty($listattempt) && empty($deleteattempt) && empty($changescoreID) && empty($changescorenumber) && empty($changescorevalue) && empty($querymultichoice) 
+			&& empty($sortfield) && empty($sortorder)){
+			echo 'Please fill in at least one section of the form.';
+			return false;
 		}
 		
 		$sql_table="attempts";
@@ -68,6 +88,12 @@
 			}else if($querymultichoice == "c"){
 				$query = "SELECT studentID, firstname, lastname FROM attempts WHERE attemptnumber = 2 AND score < 50";
 			}
+		}else if($sortfield != null AND $sortorder != null){
+			if($sortorder == "a"){
+				$query = "SELECT * FROM attempts ORDER BY $sortfield";
+			}else if($sortorder == "b"){
+				$query = "SELECT * FROM attempts ORDER BY $sortfield DESC";
+			}
 		}
 		
 		$result = mysqli_query($conn, $query);
@@ -75,7 +101,7 @@
 		if(!$result){
 			echo "<p class=\"wrong\">Something is wrong with ", $query, "</p>";
 		} else {
-			if($listattempt != null){
+			if($listattempt != null OR ($sortfield != null AND $sortorder != null)){
 				echo "<table style=\"border:1px solid black\">\n";
 				echo "<tr>\n"
 					."<th scope=\"col\">Student Number</th>\n"
@@ -87,7 +113,7 @@
 					."</tr>\n";
 				while($row = mysqli_fetch_assoc($result)){
 					echo "<tr>\n";
-					echo "<td>",$row["studentID"],"</td>\n";
+					echo "<td>",$row["studentid"],"</td>\n";
 					echo "<td>",$row["attemptnumber"],"</td>\n";
 					echo "<td>",$row["firstname"],"</td>\n";
 					echo "<td>",$row["lastname"],"</td>\n";
@@ -115,7 +141,7 @@
 					."</tr>\n";
 				while($row = mysqli_fetch_assoc($result)){
 					echo "<tr>\n";
-					echo "<td>",$row["studentID"],"</td>\n";
+					echo "<td>",$row["studentid"],"</td>\n";
 					echo "<td>",$row["attemptnumber"],"</td>\n";
 					echo "<td>",$row["firstname"],"</td>\n";
 					echo "<td>",$row["lastname"],"</td>\n";
@@ -134,7 +160,7 @@
 					."</tr>\n";
 				while($row = mysqli_fetch_assoc($result)){
 					echo "<tr>\n";
-					echo "<td>",$row["studentID"],"</td>\n";
+					echo "<td>",$row["studentid"],"</td>\n";
 					echo "<td>",$row["firstname"],"</td>\n";
 					echo "<td>",$row["lastname"],"</td>\n";
 					echo "</tr>\n";
@@ -143,7 +169,9 @@
 				
 			}
 		
-			mysqli_free_result($result);
+			if(!($result == true OR $result == false)){
+				mysqli_free_result($result);
+			}
 		}
 			
 		mysqli_close($conn);
