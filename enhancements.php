@@ -11,10 +11,10 @@
   <title>Proxy Introduction</title>
 </head>
 <body>
-<?php include 'header.inc'; ?>
-
-	
-<?php include 'menu.inc'; ?>
+    <?php include 'header.inc'; ?>
+	<div id="content">
+	<?php include 'menu.inc'; ?>
+	<div id="article1">
 
 
     <div id="content">   
@@ -76,6 +76,8 @@
             </div>
         </section>
     </div>
+</div>
+</div>
 <?php include 'footer.inc';?>
 </body>
 </html>

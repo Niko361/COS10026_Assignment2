@@ -37,7 +37,7 @@ setting max width and margin auto to make the texts centered*/
 	max-width:75%;
 	margin:auto;
 
-	min-height: calc(100vh - 211px);
+	min-height: calc(100vh - 212px);
 }
 
 #article1
