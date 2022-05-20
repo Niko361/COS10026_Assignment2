@@ -12,14 +12,14 @@
     <body>
 
     <?php include 'header.inc'; ?>
+	<div id="content">
+	<?php include 'menu.inc'; ?>
+	<div id="article1">
 
-    <?php include 'menu.inc'; ?>
+    <h1>
+        Quiz Marker
+    </h1>
 
-
-    <div id="content">
-        <h1>
-            Quiz Marker
-        </h1>
     <?php
     require_once("settings.php"); //connection info
 
@@ -191,6 +191,7 @@
         mysqli_close($conn);
     } //if successful database connection
     ?>
+    </div>
     </div>
 
 <?php include 'footer.inc';?>

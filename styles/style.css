@@ -32,10 +32,14 @@ header
 
 /*class content encompasses everything in the html body except header and footer
 setting max width and margin auto to make the texts centered*/
-.content
+#content
 {
 	max-width:75%;
 	margin:auto;
+}
+
+#article1
+{
 	background-color: #EEEEEE88;
 	border-radius:5px;
 	padding:12px;

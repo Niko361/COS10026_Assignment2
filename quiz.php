@@ -14,12 +14,10 @@
 </head>
 <body>
 
-<?php include 'header.inc'; ?>
-
-<?php include 'menu.inc'; ?>
-
-
-  <div id="content">
+  <?php include 'header.inc'; ?>
+	<div id="content">
+	<?php include 'menu.inc'; ?>
+	<div id="article1">
 
   <h4>
     This page is meant to help assess what you have learned about quizes.
@@ -90,6 +88,7 @@
     <input type= "reset" value="Reset Quiz"/>
   </form>
 
+</div>
 </div>
 
 <?php include 'footer.inc';?>

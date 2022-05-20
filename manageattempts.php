@@ -14,11 +14,10 @@
 </head>
 <body>
   
-<?php include 'header.inc'; ?>
-
-<?php include 'menu.inc'; ?>
-
-  <div id="content">
+  <?php include 'header.inc'; ?>
+	<div id="content">
+	<?php include 'menu.inc'; ?>
+	<div id="article1">
 
   <h4>
     This page is meant for queries on attempts.
@@ -78,6 +77,7 @@
     <input type= "submit" value="Check"/>
   </form>
 
+</div>
 </div>
 
 <?php include 'footer.inc';?>

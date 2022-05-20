@@ -14,12 +14,10 @@
 </head>
 <body>
 
-<?php include 'header.inc'; ?>
-
-<?php include 'menu.inc'; ?>
-
-
-  <div id="content">
+	<?php include 'header.inc'; ?>
+	<div id="content">
+	<?php include 'menu.inc'; ?>
+	<div id="article1">
   
 <?php
 	require_once("settings.php");
@@ -151,6 +149,7 @@
 		mysqli_close($conn);
 	}
 ?>
+</div>
 </div>
 
 <?php include 'footer.inc';?>

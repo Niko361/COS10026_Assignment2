@@ -14,9 +14,10 @@
 </head>
 <body>
 	<?php include 'header.inc'; ?>
-	<?php include 'menu.inc'; ?>
-	
 	<div id="content">
+	<?php include 'menu.inc'; ?>
+	<div id="article1">
+		
 	<h2><em>Most Popular Security Protocol</em></h2>
 	<hr />
 	<h2><strong>Introduction</strong></h2>
@@ -31,7 +32,9 @@
 
 	<h1><a href = "https://www.youtube.com/watch?v=ITPtewxevjw">Group Video</a></h1>
 	<iframe width="560" height="315" src="https://www.youtube.com/embed/ITPtewxevjw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+	</div>
+	</div>
+
 
 
 <?php include 'footer.inc';?> 

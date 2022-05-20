@@ -13,11 +13,10 @@
 </head>
 
 <body>
-<?php include 'header.inc'; ?>
-
-    <?php include 'menu.inc'; ?>
-
-    <div id="content">
+    <?php include 'header.inc'; ?>
+	<div id="content">
+	<?php include 'menu.inc'; ?>
+	<div id="article1">
 
     <hr>
 
@@ -157,6 +156,7 @@
         <a href="https://www.pcmag.com/encyclopedia/term/proxy-server">PCMAG. 2022. What Is A Proxy Server?. [online]</a>
     </p>
 
+    </div>
     </div>
 
     <?php include 'footer.inc';?>
