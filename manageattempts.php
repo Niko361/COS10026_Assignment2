@@ -13,20 +13,10 @@
   <title>Manage Attempts</title>
 </head>
 <body>
+  
+<?php include 'header.inc'; ?>
 
-  <header>
-		<a href="index.php"><img src="styles/images/home.jpg" alt="homebutton" height="60"></a>
-		<h1>Proxy Quiz</h1>
-  </header> 
-
-  <div class="content">
-
-    <nav>
-      <p class="menu" ><a href="index.php">Introduction</a></p> 
-      <p class="menu"><a href="topic.php">Topic Description</a> </p> 
-      <p class="menu"><a class="active" href="quiz.php">Quiz</a></p> 
-      <p class="menu"><a href="enhancements.php">Enhancements</a></p> 
-    </nav>
+<?php include 'menu.inc'; ?>
 
   <div id="article1">
 
@@ -91,16 +81,7 @@
 </div>
 </div>
 
-  <footer>
-		<p>COS10026</p>
-		<p>&#169; Swinburne University of Technology</p>
-    <p>Group Assignment Part 1</p>
-    <a href="mailto:103831724@student.swin.edu.au">103831724@student.swin.edu.au</a>
-    <a href="mailto:103986022@student.swin.edu.au">103986022@student.swin.edu.au</a>
-    <a href="mailto:1103843949@student.swin.edu.au">1103843949@student.swin.edu.au</a>
-    <a href="mailto:100595852@student.swin.edu.au">100595852@student.swin.edu.au</a>
-    <a href="mailto:1103500118@student.swin.edu.au">1103500118@student.swin.edu.au</a>		
-	</footer>
+<?php include 'footer.inc';?>
 
 </body>
 </html>
