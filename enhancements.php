@@ -15,7 +15,18 @@
 	<div id="content">
 	<?php include 'menu.inc'; ?>
 	<div id="article1">
- 
+        <section>
+            <h2>Password protected login page for quiz supervisors</h2>
+            <p>
+                The first step to password protecting access to the management page was to create a new table in the database that stores usernames and passwords for those allowed to view and manage the quiz attempts.
+            </p>
+            <p>
+                The second step was to create a new form page that takes a username and password and posts them to manageattempts.php, this page replaces manageattempts.php's place in the navigation menu.
+            </p>
+            <p>
+                Finally manageattempts.php was modifies so that it's attempt management functionality is only exposed after it queries the new admin_accounts table in the database and ensures that the username/password combination that the user's input username/password combination matches a known admin account.
+            </p>
+        </section>
         <section>
             <h2>Responsive Design</h2>
             <p>By using the media attribute in a link tag that references a stylesheet, it is possible to have an additional CSS stylesheet that
@@ -32,8 +43,6 @@
                 The other changes are that the width of the content is increased from 75% to 100%, so screen space isn't wasted,
                 and the width of asides is increased from 30% to 90% to prevent them from becoming too narrow to read.
             </p>
-            
-
         </section>
         <section>
             <div class='container'>
