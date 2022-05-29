@@ -3,7 +3,7 @@
 		<p class="menu"><a href="topic.php">Topic Description</a> </p> 
 		<p class="menu"><a href="quiz.php">Quiz</a></p> 
 		<p class="menu"><a href="enhancements.php">Enhancements</a></p> 
-		<p class="menu"><a href="manageattempts.php">Manage Attempts</a></p>
+		<p class="menu"><a href="manageattemptslogin.php">Manage Attempts</a></p>
 	</nav>
 
 
