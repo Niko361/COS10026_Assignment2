@@ -26,7 +26,7 @@
   <form method="post" action="manageattempts.php" >
     <fieldset>
       <legend class="studentdetails">
-        <h4>Username/Login</h4>
+        <h4>Username/Login (hint: try admin/admin)</h4>
       </legend>
 
       <p><label for="username">Username</label> 
