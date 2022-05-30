@@ -116,8 +116,7 @@
 	 </legend>
 	 <p><label for=\"sortfield\">Which field would you like to sort by?<br></label>
 		<select name=\"sortfield\" id=\"sortfield\">
-			<option value=\"\" selected>Please Select</option>
-			<option value=\"attempt_id\">Attempt ID</option>			
+			<option value=\"attempt_id\" selected>Attempt ID</option>			
 			<option value=\"date_time\">Date Time</option>
 			<option value=\"firstname\">First name</option>
 			<option value=\"lastname\">Last name</option>			
@@ -128,8 +127,7 @@
 	 </p>
 	 <p><label for=\"sortorder\">How would you like to sort by?<br></label>
 		<select name=\"sortorder\" id=\"sortorder\">
-			<option value=\"\" selected>Please Select</option>
-			<option value=\"a\">Ascending order</option>			
+			<option value=\"a\" selected>Ascending order</option>			
 			<option value=\"b\">Descending order</option>
 		</select>
 	 </p>

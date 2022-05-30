@@ -154,10 +154,9 @@
             else
             {
                 //display an operation successful message
-                echo "<p>Successfuly added attempt</p>";
+                echo "<p>Successfuly added attempt</p>\n";
 
                 //Display attempt details
-                echo "<table border=\"1\">\n";
                 echo "<tr>\n "
                     ."<th scope=\"col\">First Name</th>\n "
                     ."<th scope=\"col\">Last Name</th>\n "

@@ -33,7 +33,7 @@
         <input type="text" name="username" id="username" size="20" required="required"/>
       </p>
       <p>
-        <label for="password">Password</label> <input type="text" name="password" id="password" size="20" required="required"/>
+        <label for="password">Password</label> <input type="password" name="password" id="password" size="20" required="required"/>
       </p>
     </fieldset>
 

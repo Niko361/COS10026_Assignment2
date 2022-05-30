@@ -30,8 +30,7 @@
 		<li>Prohibiting inappropriate or distracting sites</li> 
 	</ul>
 
-	<h1><a href = "https://www.youtube.com/watch?v=ITPtewxevjw">Group Video</a></h1>
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/ITPtewxevjw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<h1><a href = "https://www.youtube.com/watch?v=Q0NiKwsAg1o">Group Video</a></h1>
 	</div>
 	</div>
 
