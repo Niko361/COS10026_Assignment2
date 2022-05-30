@@ -28,6 +28,18 @@
             </p>
         </section>
         <section>
+            <h2>Provide quiz supervisor options how to sort the order in which the quiz attempt records are displayed</h2>
+            <p>
+                A section to the form in manageattempts.php was added in which the user can select which parameter by which to sort the table, and whether to sort it in ascending or descending order.
+            </p>
+            <p>
+                manage.php was also modified to add an 'ORDER BY' qualifier to the sql query when displaying information from the attempts database table.
+            </p>
+            <p>
+                
+            </p>
+        </section>
+        <section>
             <h2>Responsive Design</h2>
             <p>By using the media attribute in a link tag that references a stylesheet, it is possible to have an additional CSS stylesheet that
                 is selectively loaded based on the width of the screen the page is currently being displayed on. 
